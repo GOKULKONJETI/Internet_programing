@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Panel</title>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .table-container {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Panel</h1>
+        <div class="buttons">
+            <button id="studentPassButton">Manage Student Passes</button>
+            <button id="routePassButton">Manage Route Passes</button>
+            <button id="busDetailsButton">Manage Bus Details</button>
+            <button id="addMoneyButton">Add Money</button>
+            <button id="applyBusPassButton">Apply for Bus Pass</button>
+        </div>
+        <div class="table-container" id="studentPassTable">
+            <h2>Student Passes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>School</th>
+                        <th>Validity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Student data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="routePassTable">
+            <h2>Route Passes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Route</th>
+                        <th>Validity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Route data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="busDetailsTable">
+            <h2>Bus Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bus Name</th>
+                        <th>Route</th>
+                        <th>Capacity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bus details data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="addMoneyTable">
+            <h2>Add Money</h2>
+            <form>
+                <label for="userName">User Name:</label>
+                <input type="text" id="userName" name="userName" required>
+                <br>
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount" required>
+                <br>
+                <input type="submit" onclick=addmoney() value="Add Money">
+            </form>
+        </div>
+        <div class="table-container" id="applyBusPassTable">
+            <h2>Apply for Bus Pass</h2>
+            <form>
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+                <br>
+                <label for="selectedRoute">Select Route:</label>
+                <select id="selectedRoute" name="selectedRoute">
+                    <option value="Route X">Guntur</option>
+                    <option value="Route Y">Chilakaluripeta</option>
+                    <option value="Route Z">Vijayawada</option>
+                </select>
+                <br>
+                <input type="submit" onclick=applied() value="Apply for Bus Pass">
+            </form>
+        </div>
+        <div class="content-below">
+            <h2>Content Below the Tables</h2>
+            <p>This is where you can display additional content.</p>
+        </div>
+    </div>
+
+    <script>
+        const studentPassButton = document.getElementById('studentPassButton');
+        const routePassButton = document.getElementById('routePassButton');
+        const busDetailsButton = document.getElementById('busDetailsButton');
+        const addMoneyButton = document.getElementById('addMoneyButton');
+        const applyBusPassButton = document.getElementById('applyBusPassButton');
+        const studentPassTable = document.getElementById('studentPassTable');
+        const routePassTable = document.getElementById('routePassTable');
+        const busDetailsTable = document.getElementById('busDetailsTable');
+        const addMoneyTable = document.getElementById('addMoneyTable');
+        const applyBusPassTable = document.getElementById('applyBusPassTable');
+
+        studentPassButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'block';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'none';
+            addMoneyTable.style.display = 'none';
+            applyBusPassTable.style.display = 'none';
+        });
+
+        routePassButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'block';
+            busDetailsTable.style.display = 'none';
+            addMoneyTable.style.display = 'none';
+            applyBusPassTable.style.display = 'none';
+        });
+
+        busDetailsButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'block';
+            addMoneyTable.style.display = 'none';
+            applyBusPassTable.style.display = 'none';
+        });
+
+        addMoneyButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'none';
+            addMoneyTable.style.display = 'block';
+            applyBusPassTable.style.display = 'none';
+        });
+
+        applyBusPassButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'none';
+            addMoneyTable.style.display = 'none';
+            applyBusPassTable.style.display = 'block';
+        });
+function addmoney(){
+alert("Money Added Successfully..!!");
+}
+function applied(){
+alert("Bus Pass Applied Successfully..!!");
+}
+    </script>
+</body>
+</html>

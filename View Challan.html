@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Challan</title>
+    <style>
+        body {
+            background-color: #CDD45A;
+            background-image: url('your-image.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #000000;
+            font-size: 18px;
+            padding: 10px 20px;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        h1 {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <marquee><h1>View Challan</h1></marquee>
+
+    <form action="challan-details.html" method="post">
+        <label for="challanNumber"><b>Challan Number</b></label>
+        <input type="text" id="challanNumber" name="challanNumber" required><br><br>
+
+        <input type="submit" value="View Challan">
+    </form>
+</body>
+</html>

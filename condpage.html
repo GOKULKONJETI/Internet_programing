@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conductor Page</title>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .table-container {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conductor Page</h1>
+        <div class="buttons">
+            <button id="loginButton">Login</button>
+            <button id="scanQRButton">Scan QR</button>
+            <button id="verifyBusPassIDButton">Verify Bus Pass ID</button>
+            <button id="verifyBusTicketButton">Verify Bus Ticket</button>
+            <button id="updateBusLocationButton">Update Bus Location</button>
+        </div>
+        <div class="table-container" id="loginTable">
+            <h2>Login</h2>
+            <!-- Add your login form here -->
+        </div>
+        <div class="table-container" id="scanQRTable">
+            <h2>Scan QR</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Passenger Name</th>
+                        <th>QR Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice</td>
+                        <td>QR12345</td>
+                    </tr>
+                    <tr>
+                        <td>Bob</td>
+                        <td>QR67890</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="verifyBusPassIDTable">
+            <h2>Verify Bus Pass ID</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Passenger Name</th>
+                        <th>Pass ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GOKUL</td>
+                        <td>P12345</td>
+                    </tr>
+                    <tr>
+                        <td>SATEESH</td>
+                        <td>P67890</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="verifyBusTicketTable">
+            <h2>Verify Bus Ticket</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>GOKUK</th>
+                        <th>U2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BALAJI</td>
+                        <td>T12345</td>
+                    </tr>
+                    <tr>
+                        <td>MANJU</td>
+                        <td>T67890</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="updateBusLocationTable">
+            <h2>Update Bus Location</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:00 AM</td>
+                        <td>MaiN STREET</td>
+                    </tr>
+                    <tr>
+                        <td>11:30 AM</td>
+                        <td>City Park</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const loginButton = document.getElementById('loginButton');
+        const scanQRButton = document.getElementById('scanQRButton');
+        const verifyBusPassIDButton = document.getElementById('verifyBusPassIDButton');
+        const verifyBusTicketButton = document.getElementById('verifyBusTicketButton');
+        const updateBusLocationButton = document.getElementById('updateBusLocationButton');
+        const loginTable = document.getElementById('loginTable');
+        const scanQRTable = document.getElementById('scanQRTable');
+        const verifyBusPassIDTable = document.getElementById('verifyBusPassIDTable');
+        const verifyBusTicketTable = document.getElementById('verifyBusTicketTable');
+        const updateBusLocationTable = document.getElementById('updateBusLocationTable');
+
+        loginButton.addEventListener('click', () => {
+            showTable('loginTable');
+        });
+
+        scanQRButton.addEventListener('click', () => {
+            showTable('scanQRTable');
+        });
+
+        verifyBusPassIDButton.addEventListener('click', () => {
+            showTable('verifyBusPassIDTable');
+        });
+
+        verifyBusTicketButton.addEventListener('click', () => {
+            showTable('verifyBusTicketTable');
+        });
+
+        updateBusLocationButton.addEventListener('click', () => {
+            showTable('updateBusLocationTable');
+        });
+
+        function showTable(tableId) {
+            const tables = document.querySelectorAll('.table-container');
+            tables.forEach(table => {
+                table.style.display = 'none';
+            });
+            const tableToShow = document.getElementById(tableId);
+            tableToShow.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

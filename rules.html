@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chalana Penalty Calculator</title>
+    <style>
+        body {
+            background-color: #CDD45A;
+            background-image: url('your-image.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h1 {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <marquee><h1>Chalana Penalty Calculator</h1></marquee>
+
+    <form id="chalanaCalculator">
+        <label for="ruleSelect">Select Rule:</label>
+        <select id="ruleSelect">
+            <option value="rule1">Rule 1 - Speeding</option>
+            <option value="rule2">Rule 2 - Red Light Violation</option>
+            <option value="rule3">Rule 3 - No Seat Belt</option>
+            <option value="rule4">Rule 4 - Illegal Parking</option>
+            <option value="rule5">Rule 5 - Drunk Driving</option>
+            <option value="rule6">Rule 6 - Using Mobile While Driving</option>
+            <option value="rule7">Rule 7 - Overtaking in No-Overtake Zone</option>
+            
+        </select>
+        <br>
+
+        <label for="violations">Number of Violations:</label>
+        <input type="number" id="violations" min="1" value="1">
+        <br>
+
+        <input type="button" value="Calculate Penalty" onclick="calculatePenalty()">
+    </form>
+
+    <p><strong>Penalty Amount:</strong> <span id="penaltyAmount">N/A</span></p>
+
+    <script>
+        function calculatePenalty() {
+            const ruleSelect = document.getElementById('ruleSelect');
+            const violations = document.getElementById('violations');
+            const penaltyAmount = document.getElementById('penaltyAmount');
+
+            const selectedRule = ruleSelect.value;
+            const numberOfViolations = parseInt(violations.value);
+
+            let penalty = 0;
+
+            // Define your rule-to-penalty logic here
+            switch (selectedRule) {
+                case 'rule1':
+                    penalty = 1000 * numberOfViolations;
+                    break;
+                case 'rule2':
+                    penalty = 550 * numberOfViolations;
+                    break;
+                case 'rule3':
+                    penalty = 705 * numberOfViolations;
+                    break;
+                case 'rule4':
+                    penalty = 500 * numberOfViolations;
+                    break;
+                case 'rule5':
+                    penalty = 2000 * numberOfViolations;
+                    break;
+                case 'rule6':
+                    penalty = 550 * numberOfViolations;
+                    break;
+                case 'rule7':
+                    penalty = 420 * numberOfViolations;
+                    break;
+                default:
+                    penalty = 0;
+            }
+
+            penaltyAmount.textContent = `₹${penalty}`;
+        }
+    </script>
+<a href="uploadproffphoto.html"><input type="submit" value="upload proff photo"</a> <br/><br/><br/></h1>
+</body>
+</html>

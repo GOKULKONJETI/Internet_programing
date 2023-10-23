@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Business Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Post Business Information</h1>
+        <form method="post">
+            <label for="businessName">Business Name:</label>
+            <input type="text" id="businessName" name="businessName" required>
+            
+            <label for="businessAddress">Business Address:</label>
+            <textarea id="businessAddress" name="businessAddress" required></textarea>
+            
+            <label for="businessEmail">Business Email:</label>
+            <input type="email" id="businessEmail" name="businessEmail" required>
+            
+            <label for="businessPhone">Business Phone:</label>
+            <input type="text" id="businessPhone" name="businessPhone" required>
+            
+            <label for="businessDescription">Business Description:</label>
+            <textarea id="businessDescription" name="businessDescription" required></textarea>
+            
+            <button type="submit">Post Business</button>
+            <a href="king.html"><button type="button">postbusiness</button></a>
+        </form>
+    </div>
+</body>
+</html>

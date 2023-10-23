@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #error-message {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Student Login</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div id="error-message"></div>
+
+            <input type="submit" onclick=manikanta() value="Login">
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = loginForm.username.value;
+            const password = loginForm.password.value;
+
+            // Add your admin authentication logic here
+            if (username === 'VIRAT' && password === 'MANIKANTA') {
+                window.location.href = 'admin_dashboard.html'; // Redirect to the admin dashboard on successful login
+            } else {
+                errorMessage.textContent = 'Invalid username or password';
+            }
+        });
+ function manikanta()
+{
+window.open("stdata.html");
+}
+    </script>
+</body>
+</html>

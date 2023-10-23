@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background-image: url('admin-background.jpg'); /* Set your background image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-size: 46px; /* Set your desired font size */
+            font-family: helvetica, open scans; /* Set your desired font family */
+            color: #00ffff; /* Set font color */
+        }
+
+        h1 {
+            font-size: 50px; /* Adjust the heading font size */
+        }
+
+        ul {
+            list-style-type: bullet points;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff; /* Set link color */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body align="center">
+    <h1>Welcome Admin</h1>
+
+    <!-- Data management options -->
+    <ul>
+        <li><a href="add-data.html">Add Data</a></li>
+        <li><a href="view-data.html">View Data</a></li>
+        <li><a href="edit-data.html">Edit Data</a></li>
+        <li><a href="delete-data.html">Delete Data</a></li>
+    </ul>
+
+    <!-- Logout option -->
+    <form action="admin-logout.php" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>

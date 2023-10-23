@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Manage Passes</title>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .table-container {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel - Manage Passes</h1>
+        <div class="buttons">
+            <button id="studentPassButton">Manage Student Passes</button>
+            <button id="routePassButton">Manage Route Passes</button>
+            <button id="busDetailsButton">Manage Bus Details</button>
+        </div>
+        <div class="table-container" id="studentPassTable">
+            <h2>Student Passes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>School</th>
+                        <th>Validity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Student data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="routePassTable">
+            <h2>Route Passes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Route</th>
+                        <th>Validity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Route data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container" id="busDetailsTable">
+            <h2>Bus Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bus Name</th>
+                        <th>Route</th>
+                        <th>Capacity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bus details data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="content-below">
+            <h2>Content Below the Tables</h2>
+            <p>This is where you can display additional content.</p>
+        </div>
+    </div>
+
+    <script>
+        const studentPassButton = document.getElementById('studentPassButton');
+        const routePassButton = document.getElementById('routePassButton');
+        const busDetailsButton = document.getElementById('busDetailsButton');
+        const studentPassTable = document.getElementById('studentPassTable');
+        const routePassTable = document.getElementById('routePassTable');
+        const busDetailsTable = document.getElementById('busDetailsTable');
+
+        studentPassButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'block';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'none';
+        });
+
+        routePassButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'block';
+            busDetailsTable.style.display = 'none';
+        });
+
+        busDetailsButton.addEventListener('click', () => {
+            studentPassTable.style.display = 'none';
+            routePassTable.style.display = 'none';
+            busDetailsTable.style.display = 'block';
+        });
+
+        // Sample student data
+        const studentData = [
+            { name: "Gokul", school: "School A", validity: "Jan 2023 - Dec 2024", status: "Approved" },
+            { name: "Sateesh", school: "School B", validity: "Feb 2023 - Dec 2024", status: "Pending" },
+            { name: "Murali", school: "School B", validity: "Feb 2023 - Dec 2024", status: "Approved" },
+            { name: "Balaji", school: "School B", validity: "Feb 2023 - Dec 2024", status: "Pending" },
+            { name: "Manju", school: "School B", validity: "Feb 2023 - Dec 2024", status: "Approved" }
+            // Add more student data objects as needed
+        ];
+
+        const studentTableBody = document.querySelector("#studentPassTable tbody");
+
+        // Sample route data
+        const routeData = [
+            { name: "Gokul", route: "cpt", validity: "Jan 2023 - Dec 2024", status: "Approved" },
+            { name: "Sateesh", route: "Ongole", validity: "Feb 2023 - Dec 2024", status: "Pending" },
+            { name: "Murali", route: "Vijayawada", validity: "Feb 2023 - Dec 2024", status: "Approved" },
+            { name: "Balaji", route: "Guntakal", validity: "Feb 2023 - Dec 2024", status: "Pending" },
+            { name: "Manju", route: "Guntur", validity: "Feb 2023 - Dec 2024", status: "Approved" }
+            // Add more route data objects as needed
+        ];
+
+        const routeTableBody = document.querySelector("#routePassTable tbody");
+
+        // Sample bus details data
+        const busDetailsData = [
+            { name: "sri venkataswara", route: "chennai to hyd", capacity: "50" },
+            { name: "Bus garuda", route: "vjy to tirupathi", capacity: "40" },
+            { name: "sleppwell", route: "cpt to kerala", capacity: "30" }
+            // Add more bus details data objects as needed
+        ];
+
+        const busDetailsTableBody = document.querySelector("#busDetailsTable tbody");
+
+        // Populate student data into the table
+        studentData.forEach(student => {
+            const row = studentTableBody.insertRow();
+            row.insertCell(0).textContent = student.name;
+            row.insertCell(1).textContent = student.school;
+            row.insertCell(2).textContent = student.validity;
+            row.insertCell(3).textContent = student.status;
+            row.insertCell(4).innerHTML = '<a href="edit_student_pass.php">Edit</a> | <a href="delete_student_pass.php">Delete</a>';
+        });
+
+        // Populate route data into the table
+        routeData.forEach(route => {
+            const row = routeTableBody.insertRow();
+            row.insertCell(0).textContent = route.name;
+            row.insertCell(1).textContent = route.route;
+            row.insertCell(2).textContent = route.validity;
+            row.insertCell(3).textContent = route.status;
+            row.insertCell(4).innerHTML = '<a href="edit_route_pass.php">Edit</a> | <a href="delete_route_pass.php">Delete</a>';
+        });
+
+        // Populate bus details data into the table
+        busDetailsData.forEach(bus => {
+            const row = busDetailsTableBody.insertRow();
+            row.insertCell(0).textContent = bus.name;
+            row.insertCell(1).textContent = bus.route;
+            row.insertCell(2).textContent = bus.capacity;
+            row.insertCell(3).innerHTML = '<a href="edit_bus_details.php">Edit</a> | <a href="delete_bus_details.php">Delete</a>';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            background-color: #CDD45A;
+            background-image: url('your-image.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #000000;
+            font-size: 18px;
+            padding: 10px 20px;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+        h1 {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <marquee><h1>User Registration</h1></marquee>
+
+    <form action="registration-success.html" method="post">
+        <label for="username"><b>Username</b></label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        
+    </form>
+<form action="regsucces.html">
+<input type="submit" value="Register">
+
+</body>
+</html>

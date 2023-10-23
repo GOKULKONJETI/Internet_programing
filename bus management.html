@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <marquee behavior="alternate">  ONLINE BUS PASS MANAGEMENT </marquee>
+    <style>
+        body {
+            background-image: url('background-image.jpg'); /* Replace with your image file */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-size:30px;
+            color:cyan;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Your CSS styles here */
+    </style>
+</head>
+<body align="center">
+    <div class="login-container">
+        <h1>Login</h1>
+        <form>
+
+            <div id="admin-login" style="display: none;">
+                <label for="admin-username">Admin Username:</label>
+                <input type="text" id="admin-username" name="admin-username" required>
+
+                <label for="admin-password">Admin Password:</label>
+                <input type="password" id="admin-password" name="admin-password" required>
+            </div>
+
+            <div id="user-login" style="display: none;">
+                <label for="user-username">User Username:</label>
+                <input type="text" id="user-username" name="user-username" required>
+
+                <label for="user-password">User Password:</label>
+                <input type="password" id="user-password" name="user-password" required>
+            </div>
+
+            <div id="conductor-login" style="display: none;">
+                <label for="conductor-username">Conductor Username:</label>
+                <input type="text" id="conductor-username" name="conductor-username" required>
+
+                <label for="conductor-password">Conductor Password:</label>
+                <input type="password" id="conductor-password" name="conductor-password" required>
+            </div>
+
+            <input type="submit" onclick=gokul() value="Admin Login">
+<input type="submit" onclick=gokul2() value="Student Login">
+<input type="submit" onclick=gokul3() value="Conductor Login">
+        </form>
+    </div>
+
+    <script>
+        const roleSelect = document.getElementById('role');
+        const adminLogin = document.getElementById('admin-login');
+        const userLogin = document.getElementById('user-login');
+        const conductorLogin = document.getElementById('conductor-login');
+
+        roleSelect.addEventListener('change', function () {
+            const selectedRole = roleSelect.value;
+
+            adminLogin.style.display = selectedRole === 'admin' ? 'block' : 'none';
+            userLogin.style.display = selectedRole === 'user' ? 'block' : 'none';
+            conductorLogin.style.display = selectedRole === 'conductor' ? 'block' : 'none';
+        });
+     function gokul()
+{
+window.open("adminlogin2.html");
+}
+function gokul2()
+{
+window.open("studentlogin.html");
+}
+function gokul3()
+{
+window.open("condlogin.html");
+}
+    </script>
+</body>
+</html>
